@@ -17,7 +17,7 @@ The app is in its initial scaffolding stage — none of the above features have 
 - **Tailwind CSS** — styling
 - **ESLint** — linting (`eslint-config-next`)
 - **Weather**: [Open-Meteo](https://open-meteo.com) (free, no API key required)
-- **AI recommendations**: Claude API — returns structured JSON (outfit descriptions + product search queries)
+- **AI recommendations**: Google Gemini API (`@google/genai`, free tier) — forced JSON-schema output returns structured outfit descriptions + product search queries
 - **Products**: a real-time product search API (start with a free-tier Google Shopping-style API on RapidAPI) — no hard-coded product data
 
 ## Key rules
@@ -33,7 +33,7 @@ The app is in its initial scaffolding stage — none of the above features have 
 - `src/app/` — routes, layouts, and pages (App Router conventions)
 - `src/app/layout.tsx` — root layout and metadata
 - `src/app/page.tsx` — home page (outfit request form)
-- `src/app/api/` — Route Handlers for server-side calls to weather, Claude, and product search APIs
+- `src/app/api/` — Route Handlers for server-side calls to weather, Gemini, and product search APIs
 - `src/app/globals.css` — Tailwind entry point and CSS variables (`--background`, `--foreground`)
 - `public/` — static assets
 
@@ -45,7 +45,7 @@ As features are added, prefer colocating feature code under `src/` (e.g. `src/co
 - Use TypeScript for all source files.
 - Style with Tailwind utility classes; avoid introducing a separate CSS-in-JS system.
 - Keep the `@/*` import alias (configured in `tsconfig.json`) for absolute imports from `src/`.
-- Call third-party APIs (weather, Claude, product search) from server-side code (Route Handlers or Server Actions) so API keys never reach the client.
+- Call third-party APIs (weather, Gemini, product search) from server-side code (Route Handlers or Server Actions) so API keys never reach the client.
 - Validate and type external API responses at the boundary rather than trusting raw JSON throughout the app.
 
 ## Commands
